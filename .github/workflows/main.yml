@@ -19,9 +19,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt  # Installs all necessary packages
+          pip install pyinstaller  # Explicitly install PyInstaller
+
       - name: Build EXE
         run: |
           pyinstaller --onefile --hidden-import=keyring --hidden-import=requests --hidden-import=pyodbc GortonsAcostaOrderUpload.py  # Replace with your script filename
+
       - name: Upload EXE Artifact
         uses: actions/upload-artifact@v4
         with:
