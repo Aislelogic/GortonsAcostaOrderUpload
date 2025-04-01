@@ -29,7 +29,7 @@ def log_error_to_db(notification_type, error_message, file_name = ""):
             "DATABASE=VeraCoreOrderProcessing;"
             "UID=AisleLogicSQL;"
             "PWD=3VnZZVXQRbvU4Qv;"
-            "Encrypt=yes;"
+            "Encrypt=no;"
             "TrustServerCertificate=yes;"
         )
         cursor = conn.cursor()
