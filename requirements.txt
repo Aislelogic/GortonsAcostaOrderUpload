@@ -1,0 +1,5 @@
+paramiko
+pyodbc
+requests
+keyring
+lxml
