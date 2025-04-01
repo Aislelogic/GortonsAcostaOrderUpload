@@ -15,10 +15,6 @@ jobs:
         with:
           python-version: "3.11.9"  # Adjust based on your Python version
 
-      - name: Install ODBC Driver
-        run: |
-          choco install sql-server-odbc17 -y  # Install ODBC Driver 17 for SQL Server
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
