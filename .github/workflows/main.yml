@@ -15,9 +15,10 @@ jobs:
         with:
           python-version: "3.11.9"  # Adjust based on your Python version
 
-      - name: Install ODBC Driver
+      - name: Install ODBC Driver 17
         run: |
-          choco install sql-server-odbc17 -y  # Install ODBC Driver 17 for SQL Server
+          Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2137027" -OutFile "msodbcsql.msi"
+          Start-Process msiexec.exe -ArgumentList '/i msodbcsql.msi /quiet /norestart' -NoNewWindow -Wait
 
       - name: Install dependencies
         run: |
