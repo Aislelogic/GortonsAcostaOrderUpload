@@ -1,0 +1,29 @@
+name: Build EXE
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest  # Ensuring Windows for EXE compatibility
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11.9"  # Adjust based on your Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Installs all necessary packages
+      - name: Build EXE
+        run: |
+          pyinstaller --onefile --hidden-import=keyring --hidden-import=requests --hidden-import=pyodbc GortonsAcostaOrderUpload.py  # Replace with your script filename
+      - name: Upload EXE Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: GortonsAcostaOrderUpload
+          path: dist/GortonsAcostaOrderUpload.exe
