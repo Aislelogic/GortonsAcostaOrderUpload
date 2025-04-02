@@ -24,7 +24,7 @@ VERACORE_API_URL = "https://rhu351.veracore.com/pmomsws/oms.asmx"
 def log_error_to_db(notification_type, error_message, file_name = ""):
     try:
         conn = pyodbc.connect(
-            "DRIVER={ODBC Driver 17 for SQL Server};"
+            "DRIVER={SQL Server Native Client 11.0};"
             "SERVER=66.185.24.59;"
             "DATABASE=VeraCoreOrderProcessing;"
             "UID=AisleLogicSQL;"
