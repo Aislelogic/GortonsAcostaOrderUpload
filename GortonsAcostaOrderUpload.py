@@ -377,7 +377,7 @@ def process_orders_and_submit(orders):
         response = send_soap_request(soap_request)
 
         #print(f"Response for Order {order_id}: {response}")
-    return response.text
+    return response
 
 # Main Process
 if __name__ == "__main__":
